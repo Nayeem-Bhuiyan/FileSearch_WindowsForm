@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace SearchFileInAllDirectory
 {
-    public partial class Form1 : Form
+    public partial class App : Form
     {
-        public Form1()
+        public App()
         {
             InitializeComponent();
         }
@@ -190,7 +190,7 @@ namespace SearchFileInAllDirectory
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void App_Load_1(object sender, EventArgs e)
         {
             txtFolderDirectory.Text=@"C:\Users\user\Desktop\RS";
         }

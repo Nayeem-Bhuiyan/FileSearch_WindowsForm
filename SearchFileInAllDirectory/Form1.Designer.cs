@@ -1,6 +1,6 @@
 ﻿namespace SearchFileInAllDirectory
 {
-    partial class Form1
+    partial class App
     {
         /// <summary>
         /// Required designer variable.
@@ -93,7 +93,7 @@
             this.grid_ShowFilePath.TabIndex = 5;
             this.grid_ShowFilePath.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ShowFilePath_CellClick_1);
             // 
-            // Form1
+            // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,10 +105,10 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.list_SearchFileDisplay);
             this.Controls.Add(this.txtSearchKeyWord);
-            this.Name = "Form1";
+            this.Name = "App";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "App";
+            this.Load += new System.EventHandler(this.App_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.grid_ShowFilePath)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
