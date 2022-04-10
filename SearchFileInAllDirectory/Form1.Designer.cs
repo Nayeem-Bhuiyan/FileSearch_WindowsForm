@@ -45,6 +45,8 @@
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
             this.txtSearchKeyWord.Size = new System.Drawing.Size(185, 34);
             this.txtSearchKeyWord.TabIndex = 0;
+            this.txtSearchKeyWord.Text = "Enter Search Code";
+            this.txtSearchKeyWord.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchKeyWord_KeyUp);
             // 
             // list_SearchFileDisplay
             // 
