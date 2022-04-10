@@ -87,7 +87,7 @@
             this.grid_ShowFilePath.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_ShowFilePath.Location = new System.Drawing.Point(47, 201);
             this.grid_ShowFilePath.Name = "grid_ShowFilePath";
-            this.grid_ShowFilePath.Size = new System.Drawing.Size(721, 150);
+            this.grid_ShowFilePath.Size = new System.Drawing.Size(721, 290);
             this.grid_ShowFilePath.TabIndex = 5;
             this.grid_ShowFilePath.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ShowFilePath_CellClick_1);
             // 
@@ -96,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(803, 503);
             this.Controls.Add(this.grid_ShowFilePath);
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtFolderDirectory);
