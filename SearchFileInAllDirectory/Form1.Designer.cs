@@ -39,25 +39,26 @@
             // 
             // txtSearchKeyWord
             // 
-            this.txtSearchKeyWord.Location = new System.Drawing.Point(47, 48);
+            this.txtSearchKeyWord.Location = new System.Drawing.Point(459, 64);
+            this.txtSearchKeyWord.Multiline = true;
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
-            this.txtSearchKeyWord.Size = new System.Drawing.Size(597, 20);
+            this.txtSearchKeyWord.Size = new System.Drawing.Size(185, 34);
             this.txtSearchKeyWord.TabIndex = 0;
             // 
             // list_SearchFileDisplay
             // 
             this.list_SearchFileDisplay.FormattingEnabled = true;
-            this.list_SearchFileDisplay.Location = new System.Drawing.Point(47, 73);
+            this.list_SearchFileDisplay.Location = new System.Drawing.Point(47, 60);
             this.list_SearchFileDisplay.Name = "list_SearchFileDisplay";
-            this.list_SearchFileDisplay.Size = new System.Drawing.Size(721, 121);
+            this.list_SearchFileDisplay.Size = new System.Drawing.Size(406, 134);
             this.list_SearchFileDisplay.TabIndex = 1;
             this.list_SearchFileDisplay.SelectedIndexChanged += new System.EventHandler(this.list_SearchFileDisplay_SelectedIndexChanged);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(651, 48);
+            this.btnSearch.Location = new System.Drawing.Point(651, 66);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(117, 23);
+            this.btnSearch.Size = new System.Drawing.Size(117, 34);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -66,15 +67,16 @@
             // txtFolderDirectory
             // 
             this.txtFolderDirectory.Location = new System.Drawing.Point(47, 22);
+            this.txtFolderDirectory.Multiline = true;
             this.txtFolderDirectory.Name = "txtFolderDirectory";
-            this.txtFolderDirectory.Size = new System.Drawing.Size(597, 20);
+            this.txtFolderDirectory.Size = new System.Drawing.Size(597, 30);
             this.txtFolderDirectory.TabIndex = 3;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(651, 22);
+            this.btnBrowse.Location = new System.Drawing.Point(651, 19);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(117, 23);
+            this.btnBrowse.Size = new System.Drawing.Size(117, 33);
             this.btnBrowse.TabIndex = 4;
             this.btnBrowse.Text = "Browse";
             this.btnBrowse.UseVisualStyleBackColor = true;

@@ -20,9 +20,6 @@ namespace SearchFileInAllDirectory
             InitializeComponent();
         }
 
-
-
-
         private IEnumerable<string> RecursiveFileSearch(string path, string pattern, ICollection<string> filePathCollector = null)
         {
             try
@@ -109,7 +106,7 @@ namespace SearchFileInAllDirectory
                 foreach (var path in filePathList)
                 {
                     string fileName=Path.GetFileName(path);
-                    if (fileName.ToLower().StartsWith(txtSearchKeyWord.Text.ToLower().ToString()))
+                    if (fileName.ToLower().StartsWith(txtSearchKeyWord.Text.Trim().ToLower().ToString()))
                     {
                         list_SearchFileDisplay.Items.Add(path);
                         
