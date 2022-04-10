@@ -86,7 +86,7 @@ namespace SearchFileInAllDirectory
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
-            
+            btnSearch.Text="Loading";
 
             grid_ShowFilePath.Columns.Clear();
             DataTable dt = new DataTable();
@@ -113,7 +113,7 @@ namespace SearchFileInAllDirectory
                     {
                         list_SearchFileDisplay.Items.Add(path);
                         
-                        dt.Rows.Add(new object[] { fileName });
+                        dt.Rows.Add(new object[] { path });
 
                     }
                     
@@ -121,8 +121,8 @@ namespace SearchFileInAllDirectory
 
                
                 grid_ShowFilePath.DataSource = dt;
-             
 
+                btnSearch.Text="Search";
                 MessageBox.Show("Total "+list_SearchFileDisplay.Items.Count+" file found");
             }
             else
