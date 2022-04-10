@@ -195,7 +195,7 @@ private void btnBrowse_Click(object sender, EventArgs e)
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txtFolderDirectory.Text=@"";
+            txtFolderDirectory.Text=@"C:\Users\user\Desktop\RS";
         }
     }
 
