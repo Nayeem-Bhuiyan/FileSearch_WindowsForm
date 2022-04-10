@@ -235,11 +235,11 @@ namespace SearchFileInAllDirectory
                 grid_ShowFilePath.DataSource = dt;
 
                 btnSearch.Text="Search";
-               // MessageBox.Show("Total "+list_SearchFileDisplay.Items.Count+" file found");
+              
             }
             else
             {
-                //MessageBox.Show("No Match File Found");
+                MessageBox.Show(e.ToString());
             }
 
         }
