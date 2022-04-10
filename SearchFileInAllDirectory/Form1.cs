@@ -172,7 +172,7 @@ namespace SearchFileInAllDirectory
             OpenFileDialog openFolder = new OpenFileDialog
             {
                 InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
-                Title = "Browse Text Files",
+                Title = "Browse Files",
 
                 CheckFileExists = true,
                 CheckPathExists = true,
