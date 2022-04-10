@@ -39,6 +39,7 @@
             // 
             // txtSearchKeyWord
             // 
+            this.txtSearchKeyWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchKeyWord.Location = new System.Drawing.Point(459, 64);
             this.txtSearchKeyWord.Multiline = true;
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
@@ -47,10 +48,12 @@
             // 
             // list_SearchFileDisplay
             // 
+            this.list_SearchFileDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list_SearchFileDisplay.FormattingEnabled = true;
+            this.list_SearchFileDisplay.ItemHeight = 20;
             this.list_SearchFileDisplay.Location = new System.Drawing.Point(47, 60);
             this.list_SearchFileDisplay.Name = "list_SearchFileDisplay";
-            this.list_SearchFileDisplay.Size = new System.Drawing.Size(406, 134);
+            this.list_SearchFileDisplay.Size = new System.Drawing.Size(406, 124);
             this.list_SearchFileDisplay.TabIndex = 1;
             this.list_SearchFileDisplay.SelectedIndexChanged += new System.EventHandler(this.list_SearchFileDisplay_SelectedIndexChanged);
             // 
@@ -66,6 +69,7 @@
             // 
             // txtFolderDirectory
             // 
+            this.txtFolderDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFolderDirectory.Location = new System.Drawing.Point(47, 22);
             this.txtFolderDirectory.Multiline = true;
             this.txtFolderDirectory.Name = "txtFolderDirectory";
@@ -86,6 +90,7 @@
             // 
             this.grid_ShowFilePath.AllowUserToAddRows = false;
             this.grid_ShowFilePath.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_ShowFilePath.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grid_ShowFilePath.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_ShowFilePath.Location = new System.Drawing.Point(47, 201);
             this.grid_ShowFilePath.Name = "grid_ShowFilePath";
