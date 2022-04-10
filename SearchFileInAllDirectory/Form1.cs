@@ -90,7 +90,7 @@ namespace SearchFileInAllDirectory
 
             grid_ShowFilePath.Columns.Clear();
             DataTable dt = new DataTable();
-            dt.Columns.Add("File Path");
+            dt.Columns.Add("File Name");
             
 
             DataGridViewButtonColumn btnBrowseColumn = new DataGridViewButtonColumn();
