@@ -40,7 +40,7 @@
             // txtSearchKeyWord
             // 
             this.txtSearchKeyWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchKeyWord.Location = new System.Drawing.Point(565, 22);
+            this.txtSearchKeyWord.Location = new System.Drawing.Point(752, 22);
             this.txtSearchKeyWord.Multiline = true;
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
             this.txtSearchKeyWord.Size = new System.Drawing.Size(185, 34);
@@ -59,7 +59,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(754, 22);
+            this.btnSearch.Location = new System.Drawing.Point(940, 22);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(117, 34);
             this.btnSearch.TabIndex = 2;
@@ -73,12 +73,12 @@
             this.txtFolderDirectory.Location = new System.Drawing.Point(47, 22);
             this.txtFolderDirectory.Multiline = true;
             this.txtFolderDirectory.Name = "txtFolderDirectory";
-            this.txtFolderDirectory.Size = new System.Drawing.Size(297, 30);
+            this.txtFolderDirectory.Size = new System.Drawing.Size(466, 30);
             this.txtFolderDirectory.TabIndex = 3;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(350, 19);
+            this.btnBrowse.Location = new System.Drawing.Point(515, 20);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(117, 33);
             this.btnBrowse.TabIndex = 4;
