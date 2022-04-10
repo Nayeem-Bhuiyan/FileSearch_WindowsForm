@@ -113,7 +113,7 @@ namespace SearchFileInAllDirectory
                     {
                         list_SearchFileDisplay.Items.Add(path);
                         
-                        dt.Rows.Add(new object[] { path});
+                        dt.Rows.Add(new object[] { fileName });
 
                     }
                     
