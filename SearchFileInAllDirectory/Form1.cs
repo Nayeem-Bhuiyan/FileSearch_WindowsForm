@@ -139,7 +139,7 @@ namespace SearchFileInAllDirectory
 
 
 
-private void btnBrowse_Click(object sender, EventArgs e)
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             if (folderBrowser.ShowDialog() == DialogResult.OK)
