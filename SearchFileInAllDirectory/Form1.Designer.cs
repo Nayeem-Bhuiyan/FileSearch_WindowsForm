@@ -82,6 +82,7 @@
             // 
             // grid_ShowFilePath
             // 
+            this.grid_ShowFilePath.AllowUserToAddRows = false;
             this.grid_ShowFilePath.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid_ShowFilePath.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_ShowFilePath.Location = new System.Drawing.Point(47, 201);
