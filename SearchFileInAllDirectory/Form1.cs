@@ -159,14 +159,43 @@ private void btnBrowse_Click(object sender, EventArgs e)
 
             // System.Diagnostics.Process.Start(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
 
-            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            dialog.InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
-            dialog.IsFolderPicker = true;
-            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            //CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            //dialog.InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
+            //dialog.IsFolderPicker = true;
+            //dialog.ShowHiddenItems=true;
+            //if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            //{
+            //    txtFolderDirectory.Text = dialog.FileName;
+            //}
+
+
+            OpenFileDialog openFolder = new OpenFileDialog
             {
-                MessageBox.Show("You selected: " + dialog.FileName);
+                InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
+                Title = "Browse Text Files",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                //DefaultExt = "txt",
+                //Filter = "txt files (*.txt)|*.txt",
+                FilterIndex = 2,
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
+
+            if (openFolder.ShowDialog() == DialogResult.OK)
+            {
+                txtFolderDirectory.Text = openFolder.FileName;
             }
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txtFolderDirectory.Text=@"";
         }
     }
 
