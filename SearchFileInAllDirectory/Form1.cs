@@ -157,7 +157,7 @@ namespace SearchFileInAllDirectory
         {
             grid_ShowFilePath.Rows[e.RowIndex].Selected = true;
 
-            // System.Diagnostics.Process.Start(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
+            //System.Diagnostics.Process.Start(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
 
             //CommonOpenFileDialog dialog = new CommonOpenFileDialog();
             //dialog.InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
