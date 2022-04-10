@@ -220,9 +220,6 @@ namespace SearchFileInAllDirectory
                 foreach (var path in filePathList)
                 {
 
-
-
-
                     string fileName = Path.GetFileName(path);
                     if (fileName.ToLower().StartsWith(txtSearchKeyWord.Text.Trim().ToLower().ToString()))
                     {
