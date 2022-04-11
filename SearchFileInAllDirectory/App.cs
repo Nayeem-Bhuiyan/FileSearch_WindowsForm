@@ -88,18 +88,6 @@ namespace SearchFileInAllDirectory
         {
             Cursor.Current = Cursors.WaitCursor;
 
-            Thread t = new Thread(new ThreadStart(Splash));
-            t.Start();
-            string str = string.Empty;
-            for (int i = 0; i < 1000000; i++)
-            {
-                str += i.ToString();
-            }
-
-            t.Abort();
-
-
-
             btnSearch.Text="Loading";
 
             grid_ShowFilePath.Columns.Clear();
@@ -147,22 +135,6 @@ namespace SearchFileInAllDirectory
             }
 
         }
-
-
-        private void Splash()
-        {
-            //Open a splash screen form
-            SplashScreen.SplashForm frm = new SplashScreen.SplashForm();
-            frm.Font = new Font("Time New Romans", 7);
-            frm.AppName = "Demo";
-            //frm.Icon = Properties.Resources.app;//Load icon from resource
-            frm.ShowIcon = true;
-            frm.ShowInTaskbar = true;
-            Application.Run(frm);
-        }
-
-
-
 
 
         private void btnBrowse_Click(object sender, EventArgs e)
