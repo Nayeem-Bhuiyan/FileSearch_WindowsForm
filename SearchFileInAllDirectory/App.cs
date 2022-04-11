@@ -191,59 +191,8 @@ namespace SearchFileInAllDirectory
 
         }
 
-        private void App_Load_1(object sender, EventArgs e)
-        {
-            txtFolderDirectory.Text=@"Y:\";
-        }
-
-    //    private void txtSearchKeyWord_KeyUp(object sender, KeyEventArgs e)
-    //    {
-    //        btnSearch.Text="Loading";
-
-    //        grid_ShowFilePath.Columns.Clear();
-    //        DataTable dt = new DataTable();
-    //        dt.Columns.Add("File Name");
 
 
-    //        DataGridViewButtonColumn btnBrowseColumn = new DataGridViewButtonColumn();
-    //        btnBrowseColumn.UseColumnTextForButtonValue = true;
-    //        btnBrowseColumn.Text = "Browse";
-    //        btnBrowseColumn.Name = "btnBrowseFolder";
-    //        btnBrowseColumn.HeaderText = "Action";
-    //        grid_ShowFilePath.Columns.Add(btnBrowseColumn);
-
-
-    //        IEnumerable<string> filePathList = FileSearch();
-    //        if (filePathList!=null)
-    //        {
-    //            list_SearchFileDisplay.Items.Clear();
-
-    //            foreach (var path in filePathList)
-    //            {
-
-    //                string fileName = Path.GetFileName(path);
-    //                if (fileName.ToLower().StartsWith(txtSearchKeyWord.Text.Trim().ToLower().ToString()))
-    //                {
-    //                    list_SearchFileDisplay.Items.Add(path);
-
-    //                    dt.Rows.Add(new object[] { path });
-
-    //                }
-
-    //            }
-
-
-    //            grid_ShowFilePath.DataSource = dt;
-
-    //            btnSearch.Text="Search";
-              
-    //        }
-    //        else
-    //        {
-    //            MessageBox.Show(e.ToString());
-    //        }
-
-    //    }
     }
 
    public static class Helper
