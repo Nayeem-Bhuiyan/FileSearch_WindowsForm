@@ -83,51 +83,59 @@ namespace SearchFileInAllDirectory
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Cursor.Current = Cursors.WaitCursor;
-            btnSearch.Text="Loading";
-
-            grid_ShowFilePath.Columns.Clear();
-            DataTable dt = new DataTable();
-            dt.Columns.Add("File Name");
-
-
-            DataGridViewButtonColumn btnBrowseColumn = new DataGridViewButtonColumn();
-            btnBrowseColumn.UseColumnTextForButtonValue = true;
-            btnBrowseColumn.Text = "Browse";
-            btnBrowseColumn.Name = "btnBrowseFolder";
-            btnBrowseColumn.HeaderText = "Action";
-            grid_ShowFilePath.Columns.Add(btnBrowseColumn);
-
-
-            IEnumerable<string> filePathList = FileSearch();
-            if (filePathList!=null)
+            try
             {
-                list_SearchFileDisplay.Items.Clear();
-                string SearchKeyWord = txtSearchKeyWord.Text.Trim().ToLower().ToString();
-                foreach (var path in filePathList)
-                {
-                    string fileName = Path.GetFileName(path);
-                 
-                    if (fileName.ToLower().StartsWith(SearchKeyWord))
-                    {
-                        list_SearchFileDisplay.Items.Add(path);
+                Cursor.Current = Cursors.WaitCursor;
+                btnSearch.Text="Loading";
 
-                        dt.Rows.Add(new object[] { path });
+                grid_ShowFilePath.Columns.Clear();
+                DataTable dt = new DataTable();
+                dt.Columns.Add("File Name");
+
+
+                DataGridViewButtonColumn btnBrowseColumn = new DataGridViewButtonColumn();
+                btnBrowseColumn.UseColumnTextForButtonValue = true;
+                btnBrowseColumn.Text = "Browse";
+                btnBrowseColumn.Name = "btnBrowseFolder";
+                btnBrowseColumn.HeaderText = "Action";
+                grid_ShowFilePath.Columns.Add(btnBrowseColumn);
+
+
+                IEnumerable<string> filePathList = FileSearch();
+                if (filePathList!=null)
+                {
+                    list_SearchFileDisplay.Items.Clear();
+                    string SearchKeyWord = txtSearchKeyWord.Text.Trim().ToLower().ToString();
+                    foreach (var path in filePathList)
+                    {
+                        string fileName = Path.GetFileName(path);
+
+                        if (fileName.ToLower().StartsWith(SearchKeyWord))
+                        {
+                            list_SearchFileDisplay.Items.Add(path);
+
+                            dt.Rows.Add(new object[] { path });
+
+                        }
 
                     }
 
+
+                    grid_ShowFilePath.DataSource = dt;
+
+                    btnSearch.Text="Search";
+                    Cursor.Current = Cursors.Default;
+                    MessageBox.Show("Total "+list_SearchFileDisplay.Items.Count+" file found");
                 }
-
-
-                grid_ShowFilePath.DataSource = dt;
-
-                btnSearch.Text="Search";
-                Cursor.Current = Cursors.Default;
-                MessageBox.Show("Total "+list_SearchFileDisplay.Items.Count+" file found");
+                else
+                {
+                    MessageBox.Show("No Match File Found");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No Match File Found");
+
+                MessageBox.Show(ex.Message);
             }
 
         }
