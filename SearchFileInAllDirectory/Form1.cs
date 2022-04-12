@@ -18,7 +18,7 @@ namespace SearchFileInAllDirectory
         public App()
         {
             InitializeComponent();
-            pictureBox1.Image = new Bitmap(@"D:\ExceedSystem\FileSearch_WindowsForm\SearchFileInAllDirectory\Image\NoImage.jpg");
+            pictureBox1.Image = new Bitmap(@"Y:\Software\NoImage.jpg");
         }
 
         private IEnumerable<string> RecursiveFileSearch(string path, string pattern, ICollection<string> filePathCollector = null)
@@ -86,7 +86,7 @@ namespace SearchFileInAllDirectory
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                pictureBox1.Image = new Bitmap(@"D:\ExceedSystem\FileSearch_WindowsForm\SearchFileInAllDirectory\Image\NoImage.jpg");
+                pictureBox1.Image = new Bitmap(@"Y:\Software\NoImage.jpg");
                 btnSearch.Text="Loading";
                 btnSearch.Enabled=true;
 
@@ -161,6 +161,9 @@ namespace SearchFileInAllDirectory
         private void list_SearchFileDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
             Clipboard.SetDataObject(this.list_SearchFileDisplay.SelectedItem.ToString());
+            Cursor.Current = Cursors.WaitCursor;
+            pictureBox1.Image = new Bitmap(this.list_SearchFileDisplay.SelectedItem.ToString());
+            Cursor.Current = Cursors.Default;
         }
 
         private void grid_ShowFilePath_CellClick_1(object sender, DataGridViewCellEventArgs e)
