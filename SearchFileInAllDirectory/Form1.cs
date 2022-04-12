@@ -157,16 +157,6 @@ namespace SearchFileInAllDirectory
 
             //System.Diagnostics.Process.Start(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
 
-            //CommonOpenFileDialog dialog = new CommonOpenFileDialog();
-            //dialog.InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString());
-            //dialog.IsFolderPicker = true;
-            //dialog.ShowHiddenItems=true;
-            //if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
-            //{
-            //    txtFolderDirectory.Text = dialog.FileName;
-            //}
-
-
             OpenFileDialog openFolder = new OpenFileDialog
             {
                 InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
