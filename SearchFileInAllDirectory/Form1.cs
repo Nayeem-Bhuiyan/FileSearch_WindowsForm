@@ -18,6 +18,7 @@ namespace SearchFileInAllDirectory
         public App()
         {
             InitializeComponent();
+            pictureBox1.Image = new Bitmap(@"D:\ExceedSystem\FileSearch_WindowsForm\SearchFileInAllDirectory\Image\NoImage.jpg");
         }
 
         private IEnumerable<string> RecursiveFileSearch(string path, string pattern, ICollection<string> filePathCollector = null)
@@ -142,7 +143,7 @@ namespace SearchFileInAllDirectory
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
             if (folderBrowser.ShowDialog() == DialogResult.OK)
-                txtFolderDirectory.Text=folderBrowser.SelectedPath;
+                txtSearchFilePath.Text=folderBrowser.SelectedPath;
             else
                 MessageBox.Show("please Select folder");
         }
@@ -168,10 +169,9 @@ namespace SearchFileInAllDirectory
 
                 //DefaultExt = "txt",
              
-                Filter = "Image Files(*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp;*.png;)|*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp;*.png",
+                Filter = "All files (*.*)|*.*",
                 FilterIndex = 2,
                 RestoreDirectory = true,
-
                 ReadOnlyChecked = true,
                 ShowReadOnly = true,
                 FileName=txtSearchKeyWord.Text.Trim().ToLower().ToString(),
@@ -180,16 +180,35 @@ namespace SearchFileInAllDirectory
 
             if (openFolder.ShowDialog() == DialogResult.OK)
             {
-                Cursor.Current = Cursors.WaitCursor;
-                pictureBox1.Image = new Bitmap(openFolder.FileName);
-                txtFolderDirectory.Text = openFolder.FileName;
-                Cursor.Current = Cursors.Default;
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    pictureBox1.Image = new Bitmap(openFolder.FileName);
+                    txtSearchFilePath.Text = openFolder.FileName;
+                    Cursor.Current = Cursors.Default;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading image" + ex.Message);
+                }
+                
 
             }
         }
         private void App_Load_1(object sender, EventArgs e)
         {
             txtFolderDirectory.Text=@"Y:\";
+          
+        }
+
+        private void SetPicture()
+        {
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            using (var imgStream = assembly.GetManifestResourceStream(@"NoImage.jpg"))
+            {
+                var img = new Bitmap(imgStream);
+                pictureBox1.Image = img;
+            }
         }
 
     }

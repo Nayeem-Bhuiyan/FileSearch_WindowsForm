@@ -36,6 +36,7 @@
             this.grid_ShowFilePath = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtSearchFilePath = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grid_ShowFilePath)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -45,6 +46,7 @@
             this.txtSearchKeyWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchKeyWord.Location = new System.Drawing.Point(680, 65);
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
+            this.txtSearchKeyWord.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtSearchKeyWord.Size = new System.Drawing.Size(246, 35);
             this.txtSearchKeyWord.TabIndex = 0;
             // 
@@ -52,10 +54,11 @@
             // 
             this.list_SearchFileDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list_SearchFileDisplay.FormattingEnabled = true;
+            this.list_SearchFileDisplay.HorizontalScrollbar = true;
             this.list_SearchFileDisplay.ItemHeight = 20;
-            this.list_SearchFileDisplay.Location = new System.Drawing.Point(680, 105);
+            this.list_SearchFileDisplay.Location = new System.Drawing.Point(680, 106);
             this.list_SearchFileDisplay.Name = "list_SearchFileDisplay";
-            this.list_SearchFileDisplay.Size = new System.Drawing.Size(369, 224);
+            this.list_SearchFileDisplay.Size = new System.Drawing.Size(369, 184);
             this.list_SearchFileDisplay.TabIndex = 1;
             this.list_SearchFileDisplay.SelectedIndexChanged += new System.EventHandler(this.list_SearchFileDisplay_SelectedIndexChanged);
             // 
@@ -76,6 +79,7 @@
             this.txtFolderDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFolderDirectory.Location = new System.Drawing.Point(12, 65);
             this.txtFolderDirectory.Name = "txtFolderDirectory";
+            this.txtFolderDirectory.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtFolderDirectory.Size = new System.Drawing.Size(526, 26);
             this.txtFolderDirectory.TabIndex = 3;
             // 
@@ -127,6 +131,15 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // txtSearchFilePath
+            // 
+            this.txtSearchFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchFilePath.Location = new System.Drawing.Point(680, 296);
+            this.txtSearchFilePath.Name = "txtSearchFilePath";
+            this.txtSearchFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txtSearchFilePath.Size = new System.Drawing.Size(369, 23);
+            this.txtSearchFilePath.TabIndex = 8;
+            // 
             // App
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -134,6 +147,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Cyan;
             this.ClientSize = new System.Drawing.Size(1061, 642);
+            this.Controls.Add(this.txtSearchFilePath);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grid_ShowFilePath);
@@ -162,6 +176,7 @@
         private System.Windows.Forms.DataGridView grid_ShowFilePath;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox txtSearchFilePath;
     }
 }
 
