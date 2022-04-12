@@ -141,7 +141,6 @@
             this.txtSearchFilePath.Size = new System.Drawing.Size(369, 23);
             this.txtSearchFilePath.TabIndex = 8;
             this.txtSearchFilePath.Text = "Search File Path";
-
             // 
             // App
             // 

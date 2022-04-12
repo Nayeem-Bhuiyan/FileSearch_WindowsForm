@@ -86,7 +86,9 @@ namespace SearchFileInAllDirectory
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
+                pictureBox1.Image = new Bitmap(@"D:\ExceedSystem\FileSearch_WindowsForm\SearchFileInAllDirectory\Image\NoImage.jpg");
                 btnSearch.Text="Loading";
+                btnSearch.Enabled=true;
 
                 grid_ShowFilePath.Columns.Clear();
                 DataTable dt = new DataTable();
