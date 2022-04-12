@@ -62,7 +62,7 @@ namespace SearchFileInAllDirectory
             try
             {
             
-                string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.ToString()!=""? txtFolderDirectory.Text.ToString(): @"C:\", "*.*", SearchOption.AllDirectories);
+                string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.Trim().ToString()!=""? txtFolderDirectory.Text.Trim().ToString(): @"C:\", "*.*", SearchOption.AllDirectories);
                 files.AddRange(filesList);
 
             }
@@ -102,11 +102,12 @@ namespace SearchFileInAllDirectory
             if (filePathList!=null)
             {
                 list_SearchFileDisplay.Items.Clear();
-
+                string SearchKeyWord = txtSearchKeyWord.Text.Trim().ToLower().ToString();
                 foreach (var path in filePathList)
                 {
                     string fileName = Path.GetFileName(path);
-                    if (fileName.ToLower().StartsWith(txtSearchKeyWord.Text.Trim().ToLower().ToString()))
+                 
+                    if (fileName.ToLower().StartsWith(SearchKeyWord))
                     {
                         list_SearchFileDisplay.Items.Add(path);
 
@@ -161,73 +162,35 @@ namespace SearchFileInAllDirectory
             {
                 InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
                 Title = "Browse Files",
-
+                
                 CheckFileExists = true,
                 CheckPathExists = true,
 
                 //DefaultExt = "txt",
-                //Filter = "txt files (*.txt)|*.txt",
+                Filter = "Image Files(*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp)|*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp",
                 FilterIndex = 2,
                 RestoreDirectory = true,
 
                 ReadOnlyChecked = true,
-                ShowReadOnly = true
+                ShowReadOnly = true,
+                FileName=txtSearchKeyWord.Text.Trim().ToLower().ToString(),
+                
             };
 
             if (openFolder.ShowDialog() == DialogResult.OK)
             {
+                Cursor.Current = Cursors.WaitCursor;
+                pictureBox1.Image = new Bitmap(openFolder.FileName);
                 txtFolderDirectory.Text = openFolder.FileName;
+                Cursor.Current = Cursors.Default;
+
             }
-
         }
-
         private void App_Load_1(object sender, EventArgs e)
         {
             txtFolderDirectory.Text=@"Y:\";
         }
 
-    }
-
-    static class Helper
-    {
-        public static string FindCode(this string text, int codeLength=0)
-        {
-
-            string stopAt = String.Empty;
-            var listOfSpecialCharecter = new[] { "_", "-", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "=", @"\" };
-            bool isTrue = false;
-            foreach (var specialCharecter in listOfSpecialCharecter)
-            {
-                isTrue=specialCharecter.Any(text.Contains);
-                if (isTrue)
-                {
-                    stopAt=specialCharecter;
-                }
-
-            }
-
-            if (!String.IsNullOrWhiteSpace(text))
-            {
-                int charLocation = text.IndexOf(stopAt, StringComparison.Ordinal);
-                if (codeLength>0)
-                {
-                    if (charLocation > 0)
-                    {
-                        return text.Substring(0, codeLength);
-                    }
-                }
-                else
-                {
-                    if (charLocation > 0)
-                    {
-                        return text.Substring(0, charLocation);
-                    }
-                }
-
-            }
-
-            return String.Empty;
-        }
     }
 
 }
