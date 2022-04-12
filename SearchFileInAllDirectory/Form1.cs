@@ -167,7 +167,8 @@ namespace SearchFileInAllDirectory
                 CheckPathExists = true,
 
                 //DefaultExt = "txt",
-                Filter = "Image Files(*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp)|*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp",
+             
+                Filter = "Image Files(*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp;*.png;)|*.jpg;*.tif;*.psd; *.jpeg; *.gif; *.bmp;*.png",
                 FilterIndex = 2,
                 RestoreDirectory = true,
 
