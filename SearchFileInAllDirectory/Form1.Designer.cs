@@ -136,9 +136,12 @@
             this.txtSearchFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchFilePath.Location = new System.Drawing.Point(680, 296);
             this.txtSearchFilePath.Name = "txtSearchFilePath";
+            this.txtSearchFilePath.ReadOnly = true;
             this.txtSearchFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtSearchFilePath.Size = new System.Drawing.Size(369, 23);
             this.txtSearchFilePath.TabIndex = 8;
+            this.txtSearchFilePath.Text = "Search File Path";
+
             // 
             // App
             // 

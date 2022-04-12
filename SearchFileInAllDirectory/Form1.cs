@@ -182,8 +182,10 @@ namespace SearchFileInAllDirectory
             {
                 try
                 {
+                    
                     Cursor.Current = Cursors.WaitCursor;
                     pictureBox1.Image = new Bitmap(openFolder.FileName);
+                    txtSearchFilePath.Text ="";
                     txtSearchFilePath.Text = openFolder.FileName;
                     Cursor.Current = Cursors.Default;
                 }
@@ -197,19 +199,19 @@ namespace SearchFileInAllDirectory
         }
         private void App_Load_1(object sender, EventArgs e)
         {
-            txtFolderDirectory.Text=@"Y:\";
-          
-        }
-
-        private void SetPicture()
-        {
-            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            using (var imgStream = assembly.GetManifestResourceStream(@"NoImage.jpg"))
+           
+            try
             {
-                var img = new Bitmap(imgStream);
-                pictureBox1.Image = img;
+                txtFolderDirectory.Text=@"Y:\";
+                this.ActiveControl = txtSearchKeyWord;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
         }
+
 
     }
 
