@@ -43,9 +43,9 @@
             // txtSearchKeyWord
             // 
             this.txtSearchKeyWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchKeyWord.Location = new System.Drawing.Point(671, 65);
+            this.txtSearchKeyWord.Location = new System.Drawing.Point(680, 65);
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
-            this.txtSearchKeyWord.Size = new System.Drawing.Size(245, 35);
+            this.txtSearchKeyWord.Size = new System.Drawing.Size(246, 35);
             this.txtSearchKeyWord.TabIndex = 0;
             // 
             // list_SearchFileDisplay
@@ -53,9 +53,9 @@
             this.list_SearchFileDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.list_SearchFileDisplay.FormattingEnabled = true;
             this.list_SearchFileDisplay.ItemHeight = 20;
-            this.list_SearchFileDisplay.Location = new System.Drawing.Point(671, 106);
+            this.list_SearchFileDisplay.Location = new System.Drawing.Point(680, 105);
             this.list_SearchFileDisplay.Name = "list_SearchFileDisplay";
-            this.list_SearchFileDisplay.Size = new System.Drawing.Size(356, 224);
+            this.list_SearchFileDisplay.Size = new System.Drawing.Size(369, 224);
             this.list_SearchFileDisplay.TabIndex = 1;
             this.list_SearchFileDisplay.SelectedIndexChanged += new System.EventHandler(this.list_SearchFileDisplay_SelectedIndexChanged);
             // 
@@ -63,7 +63,7 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Green;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(919, 65);
+            this.btnSearch.Location = new System.Drawing.Point(932, 65);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(117, 34);
             this.btnSearch.TabIndex = 2;
@@ -76,14 +76,14 @@
             this.txtFolderDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFolderDirectory.Location = new System.Drawing.Point(12, 65);
             this.txtFolderDirectory.Name = "txtFolderDirectory";
-            this.txtFolderDirectory.Size = new System.Drawing.Size(512, 26);
+            this.txtFolderDirectory.Size = new System.Drawing.Size(526, 26);
             this.txtFolderDirectory.TabIndex = 3;
             // 
             // btnBrowse
             // 
             this.btnBrowse.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(530, 63);
+            this.btnBrowse.Location = new System.Drawing.Point(544, 62);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(117, 33);
             this.btnBrowse.TabIndex = 4;
@@ -99,7 +99,7 @@
             this.grid_ShowFilePath.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_ShowFilePath.Location = new System.Drawing.Point(12, 101);
             this.grid_ShowFilePath.Name = "grid_ShowFilePath";
-            this.grid_ShowFilePath.Size = new System.Drawing.Size(635, 525);
+            this.grid_ShowFilePath.Size = new System.Drawing.Size(649, 516);
             this.grid_ShowFilePath.TabIndex = 5;
             this.grid_ShowFilePath.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ShowFilePath_CellClick_1);
             // 
@@ -120,9 +120,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(671, 336);
+            this.pictureBox1.Location = new System.Drawing.Point(680, 335);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(356, 278);
+            this.pictureBox1.Size = new System.Drawing.Size(369, 282);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
