@@ -125,9 +125,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(680, 335);
+            this.pictureBox1.Location = new System.Drawing.Point(680, 320);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(369, 282);
+            this.pictureBox1.Size = new System.Drawing.Size(369, 297);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -135,13 +135,14 @@
             // txtSearchFilePath
             // 
             this.txtSearchFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchFilePath.Location = new System.Drawing.Point(680, 296);
+            this.txtSearchFilePath.Location = new System.Drawing.Point(680, 294);
             this.txtSearchFilePath.Name = "txtSearchFilePath";
             this.txtSearchFilePath.ReadOnly = true;
             this.txtSearchFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtSearchFilePath.Size = new System.Drawing.Size(369, 23);
             this.txtSearchFilePath.TabIndex = 8;
             this.txtSearchFilePath.Text = "Search File Path";
+            this.txtSearchFilePath.Visible = false;
             // 
             // App
             // 

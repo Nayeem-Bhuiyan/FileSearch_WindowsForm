@@ -1,15 +1,9 @@
-﻿using Microsoft.WindowsAPICodePack.Dialogs;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SearchFileInAllDirectory
@@ -19,58 +13,27 @@ namespace SearchFileInAllDirectory
         public App()
         {
 
+            string DefaultImageLocation = @"D:\ExceedSystem\FileSearch_WindowsForm\SearchFileInAllDirectory\Image\NoImage.jpg";
             InitializeComponent();
+
             pictureBox1.Image = new Bitmap(DefaultImageLocation);
         }
 
 
-       static string CurrentDirectory = Directory.GetCurrentDirectory();
-      static string DefaultImageLocation = CurrentDirectory+"\\"+"NoImage.jpg";
+        static string CurrentDirectory = Directory.GetCurrentDirectory();
+        static int RootDirectory = CurrentDirectory.IndexOf("SearchFileInAllDirectory");
+        // static string DefaultImageLocation = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
+        static string DefaultImageLocation = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
 
 
-        private IEnumerable<string> RecursiveFileSearch(string path, string pattern, ICollection<string> filePathCollector = null)
-        {
-            try
-            {
-                filePathCollector = filePathCollector ?? new LinkedList<string>();
-
-                var matchingFilePaths = Directory.GetFiles(path, pattern);
-
-                foreach (var matchingFile in matchingFilePaths)
-                {
-                    filePathCollector.Add(matchingFile);
-                }
-
-                var subDirectories = Directory.EnumerateDirectories(path);
-
-                foreach (var subDirectory in subDirectories)
-                {
-                    RecursiveFileSearch(subDirectory, pattern, filePathCollector);
-                }
-
-                return filePathCollector;
-            }
-            catch (Exception error)
-            {
-                bool isIgnorableError = error is PathTooLongException ||
-                    error is UnauthorizedAccessException;
-
-                if (isIgnorableError)
-                {
-                    return Enumerable.Empty<string>();
-                }
-
-                throw error;
-            }
-        }
         List<String> files = new List<String>();
         private List<String> CollectAllFiles()
         {
-            
+
             try
             {
-            
-                string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.Trim().ToString()!=""? txtFolderDirectory.Text.Trim().ToString(): @"Z:\", "*.*", SearchOption.AllDirectories);
+
+                string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.Trim().ToString()!="" ? txtFolderDirectory.Text.Trim().ToString() : @"Z:\", "*.*", SearchOption.AllDirectories);
                 files.Clear();
                 files.AddRange(filesList);
 
@@ -81,11 +44,11 @@ namespace SearchFileInAllDirectory
             }
 
             return files;
-            
-        }
-       
 
-     
+        }
+
+
+
 
 
 
@@ -205,52 +168,59 @@ namespace SearchFileInAllDirectory
             {
                 InitialDirectory = Path.GetDirectoryName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
                 Title = "Browse Files",
-                
+
                 CheckFileExists = true,
                 CheckPathExists = true,
 
                 //DefaultExt = "txt",
-             
+
                 Filter = "All files (*.*)|*.*",
                 FilterIndex = 2,
                 RestoreDirectory = true,
                 ReadOnlyChecked = true,
                 ShowReadOnly = true,
                 FileName=Path.GetFileName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
-                
+
             };
 
             if (openFolder.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    
+
                     Cursor.Current = Cursors.WaitCursor;
                     pictureBox1.Image = new Bitmap(openFolder.FileName);
                     txtSearchFilePath.Text ="";
                     txtSearchFilePath.Text = openFolder.FileName;
+                    pictureBox1.Image = Image.FromFile(openFolder.FileName);
                     Cursor.Current = Cursors.Default;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error loading image" + ex.Message);
                 }
-                
+
 
             }
         }
         private void App_Load_1(object sender, EventArgs e)
         {
-           
+
             try
             {
                 txtFolderDirectory.Text=@"Y:\";
                 this.ActiveControl = txtSearchKeyWord;
 
+
                 Thread t = new Thread(new ThreadStart(Splash));
                 t.Start();
                 CollectAllFiles();
                 t.Abort();
+
+
+
+
+
             }
             catch (Exception ex)
             {
@@ -272,7 +242,7 @@ namespace SearchFileInAllDirectory
             Application.Run(flashScreen);
         }
 
-       
+
     }
 
 }
