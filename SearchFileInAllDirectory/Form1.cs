@@ -267,11 +267,9 @@ namespace SearchFileInAllDirectory
             //Open a splash screen form
             SplashScreen.SplashForm flashScreen = new SplashScreen.SplashForm();
             flashScreen.Font = new Font("Time New Romans", 7);
-            flashScreen.AppName = "Please Wait";
-            flashScreen.StartPosition =;
-            
+            flashScreen.AppName = "Please Wait Loading";
             //frm.Icon = Properties.Resources.app;//Load icon from resource
-            flashScreen.ShowIcon = false;
+            //flashScreen.ShowIcon = false;
             flashScreen.ShowInTaskbar = true;
             Application.Run(flashScreen);
         }
