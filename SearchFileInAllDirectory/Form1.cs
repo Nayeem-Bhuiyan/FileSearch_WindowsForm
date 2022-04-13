@@ -18,14 +18,15 @@ namespace SearchFileInAllDirectory
     {
         public App()
         {
+
             InitializeComponent();
-            
             pictureBox1.Image = new Bitmap(DefaultImageLocation);
         }
 
+
        static string CurrentDirectory = Directory.GetCurrentDirectory();
-       static int RootDirectory = CurrentDirectory.IndexOf("SearchFileInAllDirectory");
-       static string DefaultImageLocation = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
+      static string DefaultImageLocation = CurrentDirectory+"\\"+"NoImage.jpg";
+
 
         private IEnumerable<string> RecursiveFileSearch(string path, string pattern, ICollection<string> filePathCollector = null)
         {
@@ -246,13 +247,10 @@ namespace SearchFileInAllDirectory
                 txtFolderDirectory.Text=@"Y:\";
                 this.ActiveControl = txtSearchKeyWord;
 
-                
                 Thread t = new Thread(new ThreadStart(Splash));
                 t.Start();
                 CollectAllFiles();
                 t.Abort();
-               
-
             }
             catch (Exception ex)
             {
