@@ -248,18 +248,7 @@ namespace SearchFileInAllDirectory
                 
                 Thread t = new Thread(new ThreadStart(Splash));
                 t.Start();
-                
-                string str = string.Empty;
                 FileSearch();
-                //for (int i = 0; i < 10000; i++)
-                //{
-
-                //    str += i.ToString();//Init data, only for demo
-                //}
-
-
-                
-
                 t.Abort();
                
 
@@ -277,7 +266,7 @@ namespace SearchFileInAllDirectory
             //Open a splash screen form
             SplashScreen.SplashForm frm = new SplashScreen.SplashForm();
             frm.Font = new Font("Time New Romans", 7);
-            frm.AppName = "Loading Information";
+            frm.AppName = "Please Wait Loading Information";
             //frm.Icon = Properties.Resources.app;//Load icon from resource
             frm.ShowIcon = true;
             frm.ShowInTaskbar = true;
