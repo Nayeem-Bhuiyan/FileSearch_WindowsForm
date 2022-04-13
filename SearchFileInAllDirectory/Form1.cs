@@ -21,7 +21,6 @@ namespace SearchFileInAllDirectory
             InitializeComponent();
             pictureBox1.Image = pictureBox1.InitialImage;
            
-            //pictureBox1.Image = new Bitmap(DefaultImagePath);
         }
 
 
