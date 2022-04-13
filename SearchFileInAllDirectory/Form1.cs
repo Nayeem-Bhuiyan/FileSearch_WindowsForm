@@ -10,20 +10,21 @@ namespace SearchFileInAllDirectory
 {
     public partial class App : Form
     {
+        static string CurrentDirectory = Directory.GetCurrentDirectory();
+        static int RootDirectory = CurrentDirectory.IndexOf("SearchFileInAllDirectory");
+        // static string DefaultImagePath = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
+        static string DefaultImagePath = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
         public App()
         {
 
-            string DefaultImageLocation = @"D:\ExceedSystem\FileSearch_WindowsForm\SearchFileInAllDirectory\Image\NoImage.jpg";
+           
             InitializeComponent();
 
-            pictureBox1.Image = new Bitmap(DefaultImageLocation);
+            //pictureBox1.Image = new Bitmap(DefaultImagePath);
         }
 
 
-        static string CurrentDirectory = Directory.GetCurrentDirectory();
-        static int RootDirectory = CurrentDirectory.IndexOf("SearchFileInAllDirectory");
-        // static string DefaultImageLocation = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
-        static string DefaultImageLocation = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
+       
 
 
         List<String> files = new List<String>();
@@ -70,7 +71,7 @@ namespace SearchFileInAllDirectory
             try
             {
                 Cursor.Current = Cursors.WaitCursor;
-                pictureBox1.Image = new Bitmap(DefaultImageLocation);
+                pictureBox1.Image = new Bitmap(DefaultImagePath);
                 btnSearch.Text="Loading";
                 btnSearch.Enabled=true;
 
@@ -189,10 +190,11 @@ namespace SearchFileInAllDirectory
                 {
 
                     Cursor.Current = Cursors.WaitCursor;
-                    pictureBox1.Image = new Bitmap(openFolder.FileName);
+                    
                     txtSearchFilePath.Text ="";
                     txtSearchFilePath.Text = openFolder.FileName;
-                    pictureBox1.Image = Image.FromFile(openFolder.FileName);
+                    //pictureBox1.Image = Image.FromFile(openFolder.FileName);
+                    pictureBox1.Image = new Bitmap(openFolder.FileName);
                     Cursor.Current = Cursors.Default;
                 }
                 catch (Exception ex)
@@ -212,14 +214,14 @@ namespace SearchFileInAllDirectory
                 this.ActiveControl = txtSearchKeyWord;
 
 
+                FileStream fs = new System.IO.FileStream(DefaultImagePath, FileMode.Open, FileAccess.Read);
+                pictureBox1.Image = Image.FromStream(fs);
+                fs.Close();
+
                 Thread t = new Thread(new ThreadStart(Splash));
                 t.Start();
                 CollectAllFiles();
                 t.Abort();
-
-
-
-
 
             }
             catch (Exception ex)
