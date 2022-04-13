@@ -19,7 +19,8 @@ namespace SearchFileInAllDirectory
 
            
             InitializeComponent();
-
+            pictureBox1.Image = pictureBox1.InitialImage;
+           
             //pictureBox1.Image = new Bitmap(DefaultImagePath);
         }
 
@@ -214,13 +215,18 @@ namespace SearchFileInAllDirectory
                 this.ActiveControl = txtSearchKeyWord;
 
 
+               
+
+                Thread t = new Thread(new ThreadStart(Splash));
+                t.Start();
+
                 FileStream fs = new System.IO.FileStream(DefaultImagePath, FileMode.Open, FileAccess.Read);
                 pictureBox1.Image = Image.FromStream(fs);
                 fs.Close();
 
-                Thread t = new Thread(new ThreadStart(Splash));
-                t.Start();
                 CollectAllFiles();
+
+
                 t.Abort();
 
             }
