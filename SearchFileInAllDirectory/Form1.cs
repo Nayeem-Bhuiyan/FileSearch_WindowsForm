@@ -19,7 +19,7 @@ namespace SearchFileInAllDirectory
 
            
             InitializeComponent();
-            pictureBox1.Image = pictureBox1.InitialImage;
+            
            
         }
 
@@ -106,10 +106,7 @@ namespace SearchFileInAllDirectory
                         }
 
                     }
-
-
                     grid_ShowFilePath.DataSource = dt;
-
                     btnSearch.Text="Search";
                     Cursor.Current = Cursors.Default;
                     MessageBox.Show("Total "+list_SearchFileDisplay.Items.Count+" file found");
@@ -190,7 +187,6 @@ namespace SearchFileInAllDirectory
                 {
 
                     Cursor.Current = Cursors.WaitCursor;
-                    
                     txtSearchFilePath.Text ="";
                     txtSearchFilePath.Text = openFolder.FileName;
                     //pictureBox1.Image = Image.FromFile(openFolder.FileName);
@@ -219,13 +215,15 @@ namespace SearchFileInAllDirectory
                 Thread t = new Thread(new ThreadStart(Splash));
                 t.Start();
 
-                FileStream fs = new System.IO.FileStream(DefaultImagePath, FileMode.Open, FileAccess.Read);
-                pictureBox1.Image = Image.FromStream(fs);
-                fs.Close();
+                if (pictureBox1.ImageLocation != DefaultImagePath)
+                {
+                    var image = Image.FromFile(DefaultImagePath);
+                    pictureBox1.Image = image;
+                    pictureBox1.ImageLocation =DefaultImagePath;
+
+                }
 
                 CollectAllFiles();
-
-
                 t.Abort();
 
             }
