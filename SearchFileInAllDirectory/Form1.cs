@@ -10,6 +10,7 @@ namespace SearchFileInAllDirectory
 {
     public partial class App : Form
     {
+        List<String> files = new List<String>();
         static string CurrentDirectory = Directory.GetCurrentDirectory();
         static int RootDirectory = CurrentDirectory.IndexOf("SearchFileInAllDirectory");
         // static string DefaultImagePath = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
@@ -23,11 +24,7 @@ namespace SearchFileInAllDirectory
            
         }
 
-
        
-
-
-        List<String> files = new List<String>();
         private List<String> CollectAllFiles()
         {
 
