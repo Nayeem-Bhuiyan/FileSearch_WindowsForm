@@ -251,11 +251,11 @@ namespace SearchFileInAllDirectory
                 
                 string str = string.Empty;
                 FileSearch();
-                for (int i = 0; i < 10000; i++)
-                {
+                //for (int i = 0; i < 10000; i++)
+                //{
 
-                    str += i.ToString();//Init data, only for demo
-                }
+                //    str += i.ToString();//Init data, only for demo
+                //}
 
 
                 
@@ -277,7 +277,7 @@ namespace SearchFileInAllDirectory
             //Open a splash screen form
             SplashScreen.SplashForm frm = new SplashScreen.SplashForm();
             frm.Font = new Font("Time New Romans", 7);
-            frm.AppName = "Please Wait Loading Information";
+            frm.AppName = "Loading Information";
             //frm.Icon = Properties.Resources.app;//Load icon from resource
             frm.ShowIcon = true;
             frm.ShowInTaskbar = true;
