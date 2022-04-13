@@ -63,13 +63,14 @@ namespace SearchFileInAllDirectory
             }
         }
         List<String> files = new List<String>();
-        private List<String> FileSearch()
+        private List<String> CollectAllFiles()
         {
             
             try
             {
             
                 string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.Trim().ToString()!=""? txtFolderDirectory.Text.Trim().ToString(): @"Z:\", "*.*", SearchOption.AllDirectories);
+                files.Clear();
                 files.AddRange(filesList);
 
             }
@@ -173,7 +174,7 @@ namespace SearchFileInAllDirectory
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     txtSearchFilePath.Text=folderBrowser.SelectedPath;
-                    FileSearch();
+                    CollectAllFiles();
                     Cursor.Current = Cursors.Default;
                 }
                 else
@@ -248,7 +249,7 @@ namespace SearchFileInAllDirectory
                 
                 Thread t = new Thread(new ThreadStart(Splash));
                 t.Start();
-                FileSearch();
+                CollectAllFiles();
                 t.Abort();
                
 
@@ -264,13 +265,15 @@ namespace SearchFileInAllDirectory
         void Splash()
         {
             //Open a splash screen form
-            SplashScreen.SplashForm frm = new SplashScreen.SplashForm();
-            frm.Font = new Font("Time New Romans", 7);
-            frm.AppName = "Please Wait Loading Information";
+            SplashScreen.SplashForm flashScreen = new SplashScreen.SplashForm();
+            flashScreen.Font = new Font("Time New Romans", 7);
+            flashScreen.AppName = "Please Wait";
+            flashScreen.StartPosition =;
+            
             //frm.Icon = Properties.Resources.app;//Load icon from resource
-            frm.ShowIcon = true;
-            frm.ShowInTaskbar = true;
-            Application.Run(frm);
+            flashScreen.ShowIcon = false;
+            flashScreen.ShowInTaskbar = true;
+            Application.Run(flashScreen);
         }
 
        
