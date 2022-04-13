@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +25,6 @@ namespace SearchFileInAllDirectory
 
        static string CurrentDirectory = Directory.GetCurrentDirectory();
        static int RootDirectory = CurrentDirectory.IndexOf("SearchFileInAllDirectory");
-
        static string DefaultImageLocation = CurrentDirectory.Substring(0, RootDirectory)+"SearchFileInAllDirectory"+"\\"+"Image"+"\\"+"NoImage.jpg";
 
         private IEnumerable<string> RecursiveFileSearch(string path, string pattern, ICollection<string> filePathCollector = null)
@@ -62,14 +62,14 @@ namespace SearchFileInAllDirectory
                 throw error;
             }
         }
-
+        List<String> files = new List<String>();
         private List<String> FileSearch()
         {
-            List<String> files = new List<String>();
+            
             try
             {
             
-                string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.Trim().ToString()!=""? txtFolderDirectory.Text.Trim().ToString(): @"C:\", "*.*", SearchOption.AllDirectories);
+                string[] filesList = Directory.GetFiles(txtFolderDirectory.Text.Trim().ToString()!=""? txtFolderDirectory.Text.Trim().ToString(): @"Z:\", "*.*", SearchOption.AllDirectories);
                 files.AddRange(filesList);
 
             }
@@ -88,6 +88,19 @@ namespace SearchFileInAllDirectory
 
 
         private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SearchFileEvent();
+
+        }
+        private void txtSearchKeyWord_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                SearchFileEvent();
+            }
+        }
+
+        private void SearchFileEvent()
         {
             try
             {
@@ -109,12 +122,12 @@ namespace SearchFileInAllDirectory
                 grid_ShowFilePath.Columns.Add(btnBrowseColumn);
 
 
-                IEnumerable<string> filePathList = FileSearch();
-                if (filePathList!=null)
+
+                if (files!=null)
                 {
                     list_SearchFileDisplay.Items.Clear();
                     string SearchKeyWord = txtSearchKeyWord.Text.Trim().ToLower().ToString();
-                    foreach (var path in filePathList)
+                    foreach (var path in files)
                     {
                         string fileName = Path.GetFileName(path);
 
@@ -145,11 +158,7 @@ namespace SearchFileInAllDirectory
 
                 MessageBox.Show(ex.Message);
             }
-
         }
-
-
-
 
 
 
@@ -157,11 +166,23 @@ namespace SearchFileInAllDirectory
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-            if (folderBrowser.ShowDialog() == DialogResult.OK)
-                txtSearchFilePath.Text=folderBrowser.SelectedPath;
-            else
-                MessageBox.Show("please Select folder");
+            try
+            {
+                FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+                if (folderBrowser.ShowDialog() == DialogResult.OK)
+                {
+                    Cursor.Current = Cursors.WaitCursor;
+                    txtSearchFilePath.Text=folderBrowser.SelectedPath;
+                    FileSearch();
+                    Cursor.Current = Cursors.Default;
+                }
+                else
+                    MessageBox.Show("please Select folder");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void list_SearchFileDisplay_SelectedIndexChanged(object sender, EventArgs e)
@@ -193,7 +214,7 @@ namespace SearchFileInAllDirectory
                 RestoreDirectory = true,
                 ReadOnlyChecked = true,
                 ShowReadOnly = true,
-                FileName=txtSearchKeyWord.Text.Trim().ToLower().ToString(),
+                FileName=Path.GetFileName(grid_ShowFilePath.Rows[e.RowIndex].Cells[1].Value.ToString()),
                 
             };
 
@@ -223,9 +244,25 @@ namespace SearchFileInAllDirectory
             {
                 txtFolderDirectory.Text=@"Y:\";
                 this.ActiveControl = txtSearchKeyWord;
-               
 
                 
+                Thread t = new Thread(new ThreadStart(Splash));
+                t.Start();
+                
+                string str = string.Empty;
+                FileSearch();
+                for (int i = 0; i < 10000; i++)
+                {
+
+                    str += i.ToString();//Init data, only for demo
+                }
+
+
+                
+
+                t.Abort();
+               
+
             }
             catch (Exception ex)
             {
@@ -235,6 +272,19 @@ namespace SearchFileInAllDirectory
         }
 
 
+        void Splash()
+        {
+            //Open a splash screen form
+            SplashScreen.SplashForm frm = new SplashScreen.SplashForm();
+            frm.Font = new Font("Time New Romans", 7);
+            frm.AppName = "Please Wait Loading Information";
+            //frm.Icon = Properties.Resources.app;//Load icon from resource
+            frm.ShowIcon = true;
+            frm.ShowInTaskbar = true;
+            Application.Run(frm);
+        }
+
+       
     }
 
 }

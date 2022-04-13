@@ -49,6 +49,7 @@
             this.txtSearchKeyWord.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtSearchKeyWord.Size = new System.Drawing.Size(246, 35);
             this.txtSearchKeyWord.TabIndex = 0;
+            this.txtSearchKeyWord.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchKeyWord_KeyUp);
             // 
             // list_SearchFileDisplay
             // 
