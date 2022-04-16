@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             this.txtSearchKeyWord = new System.Windows.Forms.TextBox();
             this.list_SearchFileDisplay = new System.Windows.Forms.ListBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -44,10 +45,10 @@
             // txtSearchKeyWord
             // 
             this.txtSearchKeyWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchKeyWord.Location = new System.Drawing.Point(680, 65);
+            this.txtSearchKeyWord.Location = new System.Drawing.Point(622, 65);
             this.txtSearchKeyWord.Name = "txtSearchKeyWord";
             this.txtSearchKeyWord.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtSearchKeyWord.Size = new System.Drawing.Size(246, 35);
+            this.txtSearchKeyWord.Size = new System.Drawing.Size(293, 35);
             this.txtSearchKeyWord.TabIndex = 0;
             this.txtSearchKeyWord.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearchKeyWord_KeyUp);
             // 
@@ -57,9 +58,9 @@
             this.list_SearchFileDisplay.FormattingEnabled = true;
             this.list_SearchFileDisplay.HorizontalScrollbar = true;
             this.list_SearchFileDisplay.ItemHeight = 20;
-            this.list_SearchFileDisplay.Location = new System.Drawing.Point(680, 106);
+            this.list_SearchFileDisplay.Location = new System.Drawing.Point(680, 130);
             this.list_SearchFileDisplay.Name = "list_SearchFileDisplay";
-            this.list_SearchFileDisplay.Size = new System.Drawing.Size(369, 184);
+            this.list_SearchFileDisplay.Size = new System.Drawing.Size(350, 184);
             this.list_SearchFileDisplay.TabIndex = 1;
             this.list_SearchFileDisplay.SelectedIndexChanged += new System.EventHandler(this.list_SearchFileDisplay_SelectedIndexChanged);
             // 
@@ -67,9 +68,9 @@
             // 
             this.btnSearch.BackColor = System.Drawing.Color.Green;
             this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.Location = new System.Drawing.Point(932, 65);
+            this.btnSearch.Location = new System.Drawing.Point(913, 62);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(117, 34);
+            this.btnSearch.Size = new System.Drawing.Size(117, 38);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = false;
@@ -81,14 +82,14 @@
             this.txtFolderDirectory.Location = new System.Drawing.Point(12, 65);
             this.txtFolderDirectory.Name = "txtFolderDirectory";
             this.txtFolderDirectory.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtFolderDirectory.Size = new System.Drawing.Size(526, 26);
+            this.txtFolderDirectory.Size = new System.Drawing.Size(468, 26);
             this.txtFolderDirectory.TabIndex = 3;
             // 
             // btnBrowse
             // 
             this.btnBrowse.BackColor = System.Drawing.Color.DarkMagenta;
             this.btnBrowse.ForeColor = System.Drawing.Color.White;
-            this.btnBrowse.Location = new System.Drawing.Point(544, 62);
+            this.btnBrowse.Location = new System.Drawing.Point(486, 62);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(117, 33);
             this.btnBrowse.TabIndex = 4;
@@ -102,9 +103,9 @@
             this.grid_ShowFilePath.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid_ShowFilePath.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.grid_ShowFilePath.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_ShowFilePath.Location = new System.Drawing.Point(12, 101);
+            this.grid_ShowFilePath.Location = new System.Drawing.Point(12, 128);
             this.grid_ShowFilePath.Name = "grid_ShowFilePath";
-            this.grid_ShowFilePath.Size = new System.Drawing.Size(649, 516);
+            this.grid_ShowFilePath.Size = new System.Drawing.Size(662, 469);
             this.grid_ShowFilePath.TabIndex = 5;
             this.grid_ShowFilePath.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ShowFilePath_CellClick_1);
             // 
@@ -125,9 +126,10 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(680, 320);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(680, 347);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(369, 297);
+            this.pictureBox1.Size = new System.Drawing.Size(350, 250);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -135,11 +137,11 @@
             // txtSearchFilePath
             // 
             this.txtSearchFilePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchFilePath.Location = new System.Drawing.Point(680, 294);
+            this.txtSearchFilePath.Location = new System.Drawing.Point(680, 319);
             this.txtSearchFilePath.Name = "txtSearchFilePath";
             this.txtSearchFilePath.ReadOnly = true;
             this.txtSearchFilePath.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtSearchFilePath.Size = new System.Drawing.Size(369, 23);
+            this.txtSearchFilePath.Size = new System.Drawing.Size(350, 23);
             this.txtSearchFilePath.TabIndex = 8;
             this.txtSearchFilePath.Text = "Search File Path";
             this.txtSearchFilePath.Visible = false;

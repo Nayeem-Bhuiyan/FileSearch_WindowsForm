@@ -25,7 +25,7 @@ namespace SearchFileInAllDirectory
         }
 
        
-        private List<String> CollectAllFiles()
+        private List<String> CollectAllFilesOfSelectedLocalDirectoryOfSelectedLocalDirectory()
         {
 
             try
@@ -133,7 +133,7 @@ namespace SearchFileInAllDirectory
                 {
                     Cursor.Current = Cursors.WaitCursor;
                     txtSearchFilePath.Text=folderBrowser.SelectedPath;
-                    CollectAllFiles();
+                    CollectAllFilesOfSelectedLocalDirectory();
                     Cursor.Current = Cursors.Default;
                 }
                 else
@@ -220,7 +220,7 @@ namespace SearchFileInAllDirectory
 
                 }
 
-                CollectAllFiles();
+                CollectAllFilesOfSelectedLocalDirectory();
                 t.Abort();
 
             }
