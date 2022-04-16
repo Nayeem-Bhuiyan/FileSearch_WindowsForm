@@ -25,7 +25,7 @@ namespace SearchFileInAllDirectory
         }
 
        
-        private List<String> CollectAllFilesOfSelectedLocalDirectoryOfSelectedLocalDirectory()
+        private List<String> CollectAllFilesOfSelectedLocalDirectory()
         {
 
             try
